@@ -4,7 +4,7 @@ class ntp (
   $config_template   = $ntp::params::config_template,
   $driftfile         = $ntp::params::driftfile,
   $keys_enable       = $ntp::params::keys_enable,
-  $keys_file         = $ntp::params::keys_file,
+  $keys_file         = $ntp::params::keysfile,
   $keys_controlkey   = $ntp::params::keys_controlkey,
   $keys_requestkey   = $ntp::params::keys_requestkey,
   $keys_trusted      = $ntp::params::keys_trusted,
