@@ -68,7 +68,7 @@ class { '::ntp':
 ```puppet
 class { '::ntp':
   servers  => [ 'ntp1.corp.com', 'ntp2.corp.com' ],
-  restrict => 'restrict 127.0.0.1',
+  restrict => ['127.0.0.1'],
 }
 ```
 
@@ -77,7 +77,7 @@ class { '::ntp':
 ```puppet
 class { '::ntp':
   servers        => [ 'ntp1.corp.com', 'ntp2.corp.com' ],
-  restrict       => 'restrict 127.0.0.1',
+  restrict       => ['127.0.0.1'],
   manage_service => false,
 }
 ```
@@ -87,7 +87,7 @@ class { '::ntp':
 ```puppet
 class { '::ntp':
   servers         => [ 'ntp1.corp.com', 'ntp2.corp.com' ],
-  restrict        => 'restrict 127.0.0.1',
+  restrict        => ['127.0.0.1'],
   manage_service  => false,
   config_template => 'different/module/custom.template.erb',
 }
@@ -162,7 +162,8 @@ that also appears in the servers list.
 
 ####`restrict`
 
-This sets the restrict options in the ntp configuration.
+This sets the restrict options in the ntp configuration.  The lines are
+preappended with restrict so you just need to list the rest of the restriction.
 
 ####`servers`
 
@@ -183,6 +184,11 @@ This selects if puppet should manage the service in the first place.
 ####`service_name`
 
 This selects the name of the ntp service for puppet to manage.
+
+####`udlc`
+
+Enables configs for undisciplined local clock regardless of
+status as a virtual machine. 
 
 
 ##Limitations
